@@ -1,0 +1,13 @@
+
+{
+  "name": "tom-scream-ludo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vite --host 0.0.0.0"
+  },
+  "dependencies": {
+    "vite": "6.4.1"
+  },
+  "devDependencies": {}
+}
