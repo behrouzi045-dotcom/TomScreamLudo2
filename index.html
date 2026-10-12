@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tom & Jerry Ludo</title>
+<style>
+body{margin:0;background:#202437;color:white;text-align:center;font-family:sans-serif}
+h1{color:#ffd54f}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;max-width:340px;margin:20px auto}
+.cell{aspect-ratio:1;background:#fff0;border:2px solid #fff;border-radius:8px;display:grid;place-items:center;font-size:25px}
+button{padding:12px 22px;border:0;border-radius:12px;background:#ffd54f;font-size:18px;font-weight:bold}
+#dice{font-size:45px;margin:15px}
+</style>
+</head>
+<body>
+<h1>🐱 Tom & Jerry 🐭</h1>
+<p>بازی لودو چهار نفره</p>
+<div id="dice">🎲</div>
+<button onclick="roll()">انداختن تاس</button>
+<div class="board" id="board"></div>
+<p id="msg">برای شروع تاس بینداز!</p>
+<script>
+let faces=["🐱","🐭","🔵","🟢"];
+let board=document.getElementById("board");
+for(let i=0;i<9;i++){
+ let c=document.createElement("div");
+ c.className="cell";
+ c.textContent=faces[i%4];
+ board.appendChild(c);
+}
+function roll(){
+ let n=Math.floor(Math.random()*6)+1;
+ document.getElementById("dice").textContent=["⚀","⚁","⚂","⚃","⚄","⚅"][n-1];
+ document.getElementById("msg").textContent="عدد تاس: "+n+" — نوبت بازی!";
+}
+</script>
+</body>
+</html>
