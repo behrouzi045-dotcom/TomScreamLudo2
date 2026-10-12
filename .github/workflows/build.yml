@@ -1,0 +1,36 @@
+
+name: Build Tom Scream Ludo APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build web game
+        run: npm run build
+
+      - name: Upload game files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tom-Scream-Ludo
+          path: dist/
